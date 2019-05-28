@@ -1,4 +1,6 @@
 
+[![Build Status](https://travis-ci.org/sonic182/load_test_aiohttp.svg?branch=master)](https://travis-ci.org/sonic182/load_test_aiohttp)
+
 # load test
 
 Load test tool

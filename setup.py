@@ -22,8 +22,8 @@ setup(
     extras_require={
         'test': [
             'pytest',
-            'pytest-cov',
             'pytest-asyncio',
+            'python-coveralls',
             'pytest-flake8',
         ]
     }

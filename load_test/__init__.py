@@ -2,6 +2,7 @@
 
 import asyncio
 import aiohttp
+import aiohttp.client_exceptions
 import statistics
 from datetime import datetime
 from datetime import timedelta
@@ -31,16 +32,25 @@ async def request(session, sem, logger, config):
             req_data['data'] = config['test']['body']
 
         before = datetime.now()
-        async with session.request(**req_data) as resp:
+        try:
+            async with session.request(**req_data) as resp:
+                after = datetime.now()
+                # data = await resp.json()
+                res = {
+                    'code': resp.status,
+                    'when': after,
+                    'duration': (after - before) / timedelta(milliseconds=1)
+                }
+                logger.debug('done request', extra=res)
+                return res
+        except Exception:
             after = datetime.now()
-            # data = await resp.json()
-            res = {
-                'code': resp.status,
+            logger.exception('some_exception')
+            return {
+                'code': 'X',
                 'when': after,
                 'duration': (after - before) / timedelta(milliseconds=1)
             }
-            logger.debug('done request', extra=res)
-            return res
 
 
 async def start(logger, args, config):
@@ -53,6 +63,10 @@ async def start(logger, args, config):
         )
     ) as session:
         sem = asyncio.Semaphore(args.concurrency)
+        # Send one request before test, for caching dns resolution
+        # and keeping alive connection
+        await request(session, sem, logger, config)
+
         statics = await asyncio.gather(*[
             request(session, sem, logger, config)
             for _ in range(args.number_of_requests)]

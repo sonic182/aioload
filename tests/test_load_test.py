@@ -19,14 +19,13 @@ class SessionRequestMock(MagicMock):
 
 
 @pytest.mark.asyncio
-async def test_request():
+async def test_request(config):
     """Test request function."""
     session = MagicMock()
     session.request.return_value = SessionRequestMock()
     session.request.return_value.status = 200
     sem = asyncio.Semaphore()
     logger = MagicMock()
-    config = MagicMock()
     res = await request(session, sem, logger, config)
 
     assert res['code'] == 200

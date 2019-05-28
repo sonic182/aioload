@@ -28,7 +28,7 @@ async def request(session, sem, logger, config):
             req_data['headers'] = dict(config['headers'])
 
         if 'body' in config['test']:
-            req_data['data'] = config['test']['data']
+            req_data['data'] = config['test']['body']
 
         before = datetime.now()
         async with session.request(**req_data) as resp:

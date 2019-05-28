@@ -15,14 +15,24 @@ async def request(session, sem, logger, config):
     """Do request and return statics."""
     async with sem:
         logger.debug('doing request')
+        req_data = {
+            'method': config['test']['method'],
+            'url': config['test']['url']
+        }
+
+        if 'params' in config:
+            req_data['params'] = dict(config['params'])
+
+        if 'headers' in config:
+            req_data['headers'] = dict(config['headers'])
+
+        if 'body' in config['test']:
+            req_data['data'] = config['test']['data']
+
         before = datetime.now()
-        async with session.request(
-                method=config['test']['method'],
-                url=config['test']['url'],
-                params=dict(config['params']),
-                headers=dict(config['headers'])
-        ) as resp:
+        async with session.request(**req_data) as resp:
             after = datetime.now()
+            # data = await resp.json()
             res = {
                 'code': resp.status,
                 'duration': (after - before) / timedelta(milliseconds=1)

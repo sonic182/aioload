@@ -1,5 +1,6 @@
 
 [![Build Status](https://travis-ci.org/sonic182/load_test_aiohttp.svg?branch=master)](https://travis-ci.org/sonic182/load_test_aiohttp)
+[![Coverage Status](https://coveralls.io/repos/github/sonic182/load_test_aiohttp/badge.svg?branch=master)](https://coveralls.io/github/sonic182/load_test_aiohttp?branch=master)
 
 # load test
 

@@ -10,6 +10,7 @@ aiohttp = "^3.5"
 cchardet = "^2.1"
 aiodns = "^2.0"
 pandas = "^0.24.2"
+matplotlib = "^3.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^4.5"

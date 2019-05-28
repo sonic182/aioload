@@ -17,6 +17,7 @@ setup(
         'aiohttp',
         'cchardet',
         'aiodns',
+        'matplotlib',
         'pandas'
     ],
     extras_require={

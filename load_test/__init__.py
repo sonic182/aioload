@@ -9,6 +9,7 @@ from argparse import ArgumentParser
 from configparser import ConfigParser
 
 from load_test.utils import get_logger
+from load_test.plot import render_plot
 
 
 async def request(session, sem, logger, config):
@@ -35,6 +36,7 @@ async def request(session, sem, logger, config):
             # data = await resp.json()
             res = {
                 'code': resp.status,
+                'when': after,
                 'duration': (after - before) / timedelta(milliseconds=1)
             }
             logger.debug('done request', extra=res)
@@ -71,6 +73,8 @@ async def start(logger, args, config):
             'concurrency': args.concurrency,
             'requests': args.number_of_requests,
         })
+        if args.plot:
+            render_plot(statics)
 
 
 def get_arguments():
@@ -81,6 +85,7 @@ def get_arguments():
     parser.add_argument('-v', '--verbose', action='store_true')
     parser.add_argument('-n', '--number_of_requests', type=int, default=100)
     parser.add_argument('-c', '--concurrency', type=int, default=10)
+    parser.add_argument('--plot', action='store_true')
     return parser.parse_args()
 
 

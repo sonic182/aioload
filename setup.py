@@ -17,12 +17,14 @@ setup(
         'aiohttp',
         'cchardet',
         'aiodns',
+        'pandas'
     ],
     extras_require={
         'test': [
             'pytest',
             'pytest-cov',
             'pytest-asyncio',
+            'pytest-flake8',
         ]
     }
 )

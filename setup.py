@@ -24,7 +24,7 @@ setup(
         'test': [
             'pytest',
             'pytest-asyncio',
-            'python-coveralls',
+            'coveralls',
             'pytest-flake8',
         ]
     }

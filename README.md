@@ -5,13 +5,7 @@ Load test tool
 
 # Development
 
-Install packages with pip-tools:
-```bash
-pip install pip-tools
-pip-compile
-pip-compile dev-requirements.in
-pip-sync requirements.txt dev-requirements.txt
-```
+Install packages with poetry or installing requirements.txt
 
 # Contribute
 

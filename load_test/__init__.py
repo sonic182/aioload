@@ -55,11 +55,12 @@ async def start(logger, args, config):
             request(session, sem, logger, config)
             for _ in range(args.number_of_requests)]
         )
-        durations = [x['duration'] for x in statics]
+        durations = []
         codes = {}
         for x in statics:
             codes[x['code']] = code = codes.get(x['code'], 0)
             codes[x['code']] = code + 1
+            durations.append(x['duration'])
 
         logger.info('done', extra={
             'min': min(durations),

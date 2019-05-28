@@ -1,8 +1,6 @@
 """Plot stuffs."""
 
-import matplotlib
 import matplotlib.pyplot as plt
-import numpy as np
 import pandas as pd
 
 
@@ -22,5 +20,5 @@ def render_plot(statics):
             periods=len(durations),
         )
     )
-    plot = serie.plot()
+    serie.plot()
     plt.show()

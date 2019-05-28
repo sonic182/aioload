@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "load_test"
+version = "0.1.0"
+description = ""
+authors = ["Johanderson <johander1822@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+aiohttp = "^3.5"
+cchardet = "^2.1"
+aiodns = "^2.0"
+pytest-cov = "^2.7"
+
+[tool.poetry.dev-dependencies]
+pytest = "^4.5"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

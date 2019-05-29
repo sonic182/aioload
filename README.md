@@ -51,6 +51,7 @@ usage: run.py [-h] [-s SETTINGS] [-d] [-v] [-n NUMBER_OF_REQUESTS]
 optional arguments:
   -h, --help            show this help message and exit
   -s SETTINGS, --settings SETTINGS
+                      default: ./config.ini
   -d, --debug
   -v, --verbose
   -n NUMBER_OF_REQUESTS, --number_of_requests NUMBER_OF_REQUESTS

@@ -108,7 +108,7 @@ async def start(logger, args, config):
 def get_arguments():
     """Get arguments."""
     parser = ArgumentParser()
-    parser.add_argument('-s', '--settings', default='./config.ini')
+    parser.add_argument('-s', '--settings', default='./config.ini', help='default: ./config.ini')
     parser.add_argument('-d', '--debug', action='store_true')
     parser.add_argument('-v', '--verbose', action='store_true')
     parser.add_argument('-n', '--number_of_requests', type=int, default=100)

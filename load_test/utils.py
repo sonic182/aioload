@@ -62,7 +62,7 @@ def get_logger(args, config, uuid=uuid4().hex, name=__name__):
     fmt = logging.Formatter(
         '{asctime} - {module}:{lineno} - {levelname} - {uuid} - {msg}',
         style='{')
-    level = logging.DEBUG
+    level = logging.DEBUG if args.debug else logging.INFO
     logger = logging.getLogger(name)
     logger.setLevel(level)
 

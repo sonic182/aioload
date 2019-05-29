@@ -51,11 +51,13 @@ usage: run.py [-h] [-s SETTINGS] [-d] [-v] [-n NUMBER_OF_REQUESTS]
 optional arguments:
   -h, --help            show this help message and exit
   -s SETTINGS, --settings SETTINGS
-                      default: ./config.ini
-  -d, --debug
-  -v, --verbose
+                        default: ./config.ini
+  -d, --debug           true if present
+  -v, --verbose         true if present
   -n NUMBER_OF_REQUESTS, --number_of_requests NUMBER_OF_REQUESTS
+                        number of requests to be done, default: 100
   -c CONCURRENCY, --concurrency CONCURRENCY
+                        concurrency (requests at the same time), default: 10
   --plot                draw charts if present
 > python run.py -n 3000 -c 50 --plot -v
 2019-05-29 11:02:32,758 - __init__:113 - INFO - 2748a248ebe143fead3ed58396df4fda - Starting script... -

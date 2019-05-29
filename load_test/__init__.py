@@ -99,7 +99,8 @@ def get_arguments():
     parser.add_argument('-v', '--verbose', action='store_true')
     parser.add_argument('-n', '--number_of_requests', type=int, default=100)
     parser.add_argument('-c', '--concurrency', type=int, default=10)
-    parser.add_argument('--plot', action='store_true')
+    parser.add_argument('--plot', action='store_true',
+                        help="draw charts if present")
     return parser.parse_args()
 
 

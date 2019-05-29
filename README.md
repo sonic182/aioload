@@ -42,6 +42,7 @@ token = something
 content-type = application/json
 ```
 
+Usage Example
 ```bash
 
 > python run.py --help
@@ -59,6 +60,7 @@ optional arguments:
   -c CONCURRENCY, --concurrency CONCURRENCY
                         concurrency (requests at the same time), default: 10
   --plot                draw charts if present
+
 > python run.py -n 3000 -c 50 --plot -v
 2019-05-29 11:02:32,758 - __init__:113 - INFO - 2748a248ebe143fead3ed58396df4fda - Starting script... -
 2019-05-29 11:02:37,027 - __init__:88 - INFO - 2748a248ebe143fead3ed58396df4fda - done - min=15.725; max=129.479; mean=67.37412766666667; stdev=13.231390347536328; codes.200=3000; concurrency=50; requests=3000;

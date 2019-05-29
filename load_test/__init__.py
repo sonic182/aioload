@@ -32,6 +32,9 @@ async def request(session, sem, logger, config):
         if 'body' in config['test']:
             req_data['data'] = config['test']['body']
 
+        # here you should modify req_data if you want more dynamic requests
+        # https://docs.aiohttp.org/en/stable/client_reference.html#aiohttp.ClientSession.request  # noqa
+
         before = datetime.now()
         try:
             async with session.request(**req_data) as resp:

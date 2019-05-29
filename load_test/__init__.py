@@ -91,12 +91,12 @@ async def start(logger, args, config):
         )
 
         logger.info('done', extra={
-            'min': min(durations),
-            'max': max(durations),
-            'mean': serie.mean(),
+            'min': '{}ms'.format(round(min(durations), 2)),
+            'max': '{}ms'.format(round(max(durations), 2)),
+            'mean': '{}ms'.format(round(serie.mean(), 2)),
             'req/s': serie.resample('1s').count().mean(),
-            'req/q_std': serie.resample('1s').count().std(),
-            'stdev': statistics.stdev(durations),
+            'req/q_std': round(serie.resample('1s').count().std(), 2),
+            'stdev': round(statistics.stdev(durations), 2),
             'codes': codes,
             'concurrency': args.concurrency,
             'requests': args.number_of_requests,

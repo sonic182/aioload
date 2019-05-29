@@ -14,9 +14,37 @@ load test tool using aiohttp, cchardet and aiodns. for drawing charts we use mat
 
 # Usage
 
+You need to specify your request in a settings file like **config.ini**
+
+```ini
+[http]
+sock_read = 30
+sock_connect = 3
+
+
+[test]
+# Target url for test
+url = http://localhost:8080/api/v1/something
+# methods: get, post, put, delete
+method = post
+#
+# use body for send body in request
+# if body is json, indicate correct header in headers section
+body = '{"foo": "bar"}'
+
+# query params if needed, this will transform url
+# in something like http://localhost:8080/api/v1/something?token=something
+[params]
+token = something
+
+# headers if needed
+[headers]
+content-type = application/json
+```
+
 ```bash
 
-# python run.py --help
+> python run.py --help
 usage: run.py [-h] [-s SETTINGS] [-d] [-v] [-n NUMBER_OF_REQUESTS]
               [-c CONCURRENCY] [--plot]
 
@@ -28,7 +56,7 @@ optional arguments:
   -n NUMBER_OF_REQUESTS, --number_of_requests NUMBER_OF_REQUESTS
   -c CONCURRENCY, --concurrency CONCURRENCY
   --plot                draw charts if present
-# python run.py -n 3000 -c 50 --plot -v
+> python run.py -n 3000 -c 50 --plot -v
 2019-05-29 11:02:32,758 - __init__:113 - INFO - 2748a248ebe143fead3ed58396df4fda - Starting script... -
 2019-05-29 11:02:37,027 - __init__:88 - INFO - 2748a248ebe143fead3ed58396df4fda - done - min=15.725; max=129.479; mean=67.37412766666667; stdev=13.231390347536328; codes.200=3000; concurrency=50; requests=3000;
 ```

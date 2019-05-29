@@ -1,5 +1,6 @@
 """Main module."""
 
+import pandas as pd
 import asyncio
 import aiohttp
 import aiohttp.client_exceptions
@@ -72,23 +73,36 @@ async def start(logger, args, config):
             for _ in range(args.number_of_requests)]
         )
         durations = []
+        when = []
         codes = {}
         for x in statics:
             codes[x['code']] = code = codes.get(x['code'], 0)
             codes[x['code']] = code + 1
             durations.append(x['duration'])
+            when.append(x['when'])
+
+        serie = pd.Series(
+            durations,
+            index=pd.date_range(
+                min(when),
+                max(when),
+                periods=len(durations),
+            )
+        )
 
         logger.info('done', extra={
             'min': min(durations),
             'max': max(durations),
-            'mean': statistics.mean(durations),
+            'mean': serie.mean(),
+            'req/s': serie.resample('1s').count().mean(),
+            'req/q_std': serie.resample('1s').count().std(),
             'stdev': statistics.stdev(durations),
             'codes': codes,
             'concurrency': args.concurrency,
             'requests': args.number_of_requests,
         })
         if args.plot:
-            render_plot(statics)
+            render_plot(statics, serie)
 
 
 def get_arguments():

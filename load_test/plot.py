@@ -1,29 +1,30 @@
 """Plot stuffs."""
 
+import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
 
 def render_plot(statics, durations_serie):
     """Render plot."""
-    codes = {}
+    codes = []
     for item in statics:
-        codes[item['code']] = code = codes.get(item['code'], 0)
-        codes[item['code']] = code + 1
-
-    # durations chart
-    fig, axes = plt.subplots(nrows=2, ncols=1)
+        codes.append(str(item['code']))
 
     # mean duration chart
     durations_serie.resample('1s').mean().plot(
-        title='median duration per 1s', ax=axes[0])
+        title='median duration per 1s')
+
     # req per second chart
+    plt.figure()
     durations_serie.resample('1s').count().plot(
-        title='req/s', ax=axes[1])
+        title='req/s')
 
     # codes chart
-    codes_df = pd.DataFrame.from_dict(codes, orient='index')
-    codes_df.plot.bar(title='response codes count')
+    plt.figure()
+    codes_df = pd.Series(np.array(codes))
+    codes_df.value_counts().plot(kind='bar', title='response codes count')
+    # codes_df.plot.pie(y='code', title='response codes count')
 
     # show charts
     plt.show()

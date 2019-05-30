@@ -52,7 +52,7 @@ async def request(session, sem, logger, config):
             logger.exception('some_exception')
             return {
                 'code': 'X',
-                'when': after,
+                'when': before,
                 'duration': (after - before) / timedelta(milliseconds=1)
             }
 
@@ -86,11 +86,7 @@ async def start(logger, args, config):
 
         serie = pd.Series(
             durations,
-            index=pd.date_range(
-                min(when),
-                max(when),
-                periods=len(durations),
-            )
+            index=when
         )
 
         logger.info('done', extra={

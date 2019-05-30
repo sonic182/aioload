@@ -67,6 +67,8 @@ poetry run python run.py -n 3000 -c 100 --plot -v
 2019-05-29 17:20:55,301 - __init__:102 - INFO - 8cf56ded860f41d8a86dab2aed05218f - done - min=14.54ms; max=212.21ms; mean=109.36ms; req/s=600.0; req/q_std=333.7; stdev=24.65; codes.200=3000; concurrency=100; requests=3000;
 ```
 
+![Preview1](./charts.jpg)
+
 # Contribute
 
 1. Fork

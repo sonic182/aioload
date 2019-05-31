@@ -26,7 +26,9 @@ async def test_request(config):
     session.request.return_value.status = 200
     sem = asyncio.Semaphore()
     logger = MagicMock()
-    res = await request(session, sem, logger, config)
+    url = MagicMock()
+    method = MagicMock()
+    res = await request(session, sem, logger, url, method)
 
     assert res['code'] == 200
     assert isinstance(res['duration'], float)

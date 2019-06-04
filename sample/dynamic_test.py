@@ -4,18 +4,18 @@ import asyncio
 import random
 from configparser import ConfigParser
 
-from load_test.utils import get_logger
+from aioload.utils import get_logger
 
-from load_test import start
-from load_test import request
-from load_test import get_arguments
+from aioload import start
+from aioload import request
+from aioload import get_arguments
 
 PARAMS = [{
-    'query': 'something',
+    'name': 'foo',
 }, {
-    'query': 'red',
+    'name': 'bar',
 }, {
-    'query': 'green',
+    'name': 'baz',
 }]
 
 
@@ -30,13 +30,13 @@ def main():
     args = get_arguments()
     config = ConfigParser()
     config.add_section('logging')
-    config.read(args.settings)
+    config.read(args.testfile)
     logger, uuid = get_logger(args, config)
     logger.info('Starting script...')
     loop = asyncio.get_event_loop()
 
     kwargs = {
-        'url': 'http://localhost:8000/search',
+        'url': 'http://localhost:8000',
         'method': 'get',
         'params': dict(config['params']),
         'target': my_request

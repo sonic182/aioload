@@ -40,6 +40,7 @@ you need to specify your request in a settings file like **config.ini**
    #
    # use body for send body in request
    # if body is json, indicate correct header in headers section
+   # comment body line if you're doing a get request
    body = '{"foo": "bar"}'
 
    # query params if needed, this will transform url

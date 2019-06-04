@@ -88,9 +88,9 @@ Contribute
 
 thanks :)
 
-.. |build status| image:: https://travis-ci.org/sonic182/load_test_aiohttp.svg?branch=master
-   :target: https://travis-ci.org/sonic182/load_test_aiohttp
-.. |coverage status| image:: https://coveralls.io/repos/github/sonic182/load_test_aiohttp/badge.svg?branch=master
-   :target: https://coveralls.io/github/sonic182/load_test_aiohttp?branch=master
+.. |build status| image:: https://travis-ci.org/sonic182/aioload.svg?branch=master
+   :target: https://travis-ci.org/sonic182/aioload
+.. |coverage status| image:: https://coveralls.io/repos/github/sonic182/aioload/badge.svg?branch=master
+   :target: https://coveralls.io/github/sonic182/aioload?branch=master
 .. |pypi package| image:: https://badge.fury.io/py/aioload.svg
     :target: https://badge.fury.io/py/aioload

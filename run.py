@@ -1,4 +1,4 @@
 
-from load_test import main
+from aioload import main
 
 main()

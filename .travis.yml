@@ -6,6 +6,6 @@ python:
   - "3.7"
 install: "pip install -e .[test]"
 script:
-  - pytest --cov=load_test 
+  - pytest --cov=aioload 
 after_success:
   coveralls

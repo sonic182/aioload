@@ -10,8 +10,8 @@ from datetime import timedelta
 from argparse import ArgumentParser
 from configparser import ConfigParser
 
-from load_test.utils import get_logger
-from load_test.plot import render_plot
+from aioload.utils import get_logger
+from aioload.plot import render_plot
 
 
 async def request(session, sem, logger, url, method, params=None,
@@ -112,8 +112,7 @@ async def start(logger, args, target=request, sock_read=30, sock_connect=3,
 def get_arguments():
     """Get arguments."""
     parser = ArgumentParser()
-    parser.add_argument('-s', '--settings',
-                        default='./config.ini', help='default: ./config.ini')
+    parser.add_argument('testfile', help='Test file to be executed')
     parser.add_argument('-d', '--debug', action='store_true',
                         help='true if present')
     parser.add_argument('-v', '--verbose',
@@ -134,7 +133,7 @@ def main():
     args = get_arguments()
     config = ConfigParser()
     config.add_section('logging')
-    config.read(args.settings)
+    config.read(args.testfile)
     logger, uuid = get_logger(args, config)
     logger.info('Starting script...')
     loop = asyncio.get_event_loop()

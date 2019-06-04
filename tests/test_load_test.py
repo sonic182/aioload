@@ -3,7 +3,7 @@
 import pytest
 import asyncio
 from unittest.mock import MagicMock
-from load_test import request
+from aioload import request
 
 
 class SessionRequestMock(MagicMock):

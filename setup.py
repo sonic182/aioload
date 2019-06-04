@@ -4,13 +4,13 @@ from setuptools import setup
 
 
 setup(
-    name='load_test',
+    name='aioload',
     version='0.0.1',
     description='Load test tool',
     author='Johanderson Mogollon',
-    author_email='johanderson@doofinder.com',
+    author_email='johanderson@mogollon.com.ve',
     license='MIT',
-    packages=['load_test'],
+    packages=['aioload'],
     setup_requires=['pytest-runner'],
     test_requires=['pytest'],
     install_requires=[
@@ -20,6 +20,12 @@ setup(
         'matplotlib',
         'pandas'
     ],
+    # other arguments here...
+    entry_points={
+        'console_scripts': [
+            'aioload=aioload:main',
+        ]
+    },
     extras_require={
         'test': [
             'pytest',

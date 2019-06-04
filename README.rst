@@ -1,7 +1,7 @@
-|build status| |coverage status|
+|build status| |coverage status| |pypi package|
 
-aioload
-=========
+AIOload
+=======
 
 Load test tool using aiohttp, cchardet and aiodns. for drawing charts we
 use matplotlib and pandas.
@@ -78,9 +78,6 @@ usage example
    2019-05-29 17:20:55,301 - __init__:102 - info - 8cf56ded860f41d8a86dab2aed05218f - done - min=14.54ms; max=212.21ms; mean=109.36ms; req/s=600.0; req/q_std=333.7; stdev=24.65; codes.200=3000; concurrency=100; requests=3000;
 
 .. figure:: ./charts.jpg
-   :alt: preview1
-
-   preview1
 
 Contribute
 ==========
@@ -95,3 +92,5 @@ thanks :)
    :target: https://travis-ci.org/sonic182/load_test_aiohttp
 .. |coverage status| image:: https://coveralls.io/repos/github/sonic182/load_test_aiohttp/badge.svg?branch=master
    :target: https://coveralls.io/github/sonic182/load_test_aiohttp?branch=master
+.. |pypi package| image:: https://badge.fury.io/py/aioload.svg
+    :target: https://badge.fury.io/py/aioload

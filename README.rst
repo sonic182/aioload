@@ -13,6 +13,13 @@ Requirements
 -  install requirements by installing package ``pip install -e .`` (-e
    for editable installation) or installing requirements.txt
 
+Installation
+============
+
+.. code:: bash
+
+  pip install aioload
+
 Usage
 =====
 
@@ -48,25 +55,25 @@ usage example
 
 .. code:: bash
 
-
-   > python run.py --help
-   usage: run.py [-h] [-s settings] [-d] [-v] [-n number_of_requests]
-                 [-c concurrency] [--plot]
-
+   > aioload -h
+   usage: aioload [-h] [-d] [-v] [-n NUMBER_OF_REQUESTS] [-c CONCURRENCY]
+                  [--plot]
+                  testfile
+   
+   positional arguments:
+     testfile              Test file to be executed
+   
    optional arguments:
      -h, --help            show this help message and exit
-     -s settings, --settings settings
-                           default: ./config.ini
      -d, --debug           true if present
      -v, --verbose         true if present
-     -n number_of_requests, --number_of_requests number_of_requests
+     -n NUMBER_OF_REQUESTS, --number_of_requests NUMBER_OF_REQUESTS
                            number of requests to be done, default: 100
-     -c concurrency, --concurrency concurrency
+     -c CONCURRENCY, --concurrency CONCURRENCY
                            concurrency (requests at the same time), default: 10
      --plot                draw charts if present
 
-   > 
-   poetry run python run.py -n 3000 -c 100 --plot -v
+   > aioload config.ini -n 3000 -c 100 --plot -v
    2019-05-29 17:20:51,662 - __init__:135 - info - 8cf56ded860f41d8a86dab2aed05218f - starting script... -
    2019-05-29 17:20:55,301 - __init__:102 - info - 8cf56ded860f41d8a86dab2aed05218f - done - min=14.54ms; max=212.21ms; mean=109.36ms; req/s=600.0; req/q_std=333.7; stdev=24.65; codes.200=3000; concurrency=100; requests=3000;
 

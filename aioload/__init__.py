@@ -60,7 +60,7 @@ async def request(session, sem, logger, url, method, params=None,
             }
 
 
-async def start(logger, args, target=request, sock_read=30, sock_connect=3,
+async def start(logger, args, target=None, sock_read=30, sock_connect=3,
                 **kwargs):
     """Start script."""
     async with aiohttp.ClientSession(
@@ -70,6 +70,7 @@ async def start(logger, args, target=request, sock_read=30, sock_connect=3,
             sock_connect=sock_connect
         )
     ) as session:
+        target = target or request
         sem = asyncio.Semaphore(args.concurrency)
         # Send one request before test, for caching dns resolution
         # and keeping alive connection
@@ -105,6 +106,7 @@ async def start(logger, args, target=request, sock_read=30, sock_connect=3,
             'concurrency': args.concurrency,
             'requests': args.number_of_requests,
         })
+
         if args.plot:
             render_plot(statics, serie)
 

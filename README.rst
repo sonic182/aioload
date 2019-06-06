@@ -80,6 +80,13 @@ usage example
 
 .. figure:: ./charts.jpg
 
+
+Note
+====
+
+Python has limits, if your applications is crazy fast like this_ crystal server, the test will be limited by aiohttp's client speed. If your app responds in more than 20ms (aprox) would be ok.
+
+
 Contribute
 ==========
 
@@ -89,6 +96,7 @@ Contribute
 
 thanks :)
 
+.. _this: ./sample/server.cr
 .. |build status| image:: https://travis-ci.org/sonic182/aioload.svg?branch=master
    :target: https://travis-ci.org/sonic182/aioload
 .. |coverage status| image:: https://coveralls.io/repos/github/sonic182/aioload/badge.svg?branch=master

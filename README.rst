@@ -84,7 +84,7 @@ usage example
 Note
 ====
 
-Python has limits, if your applications is crazy fast like this_ crystal server, the test will be limited by aiohttp's client speed. If your app responds in more than 20ms (aprox) would be ok.
+Python has limits, if your applications is crazy fast like this_ crystal server, the test will be limited by aiohttp's client speed.
 
 
 Contribute

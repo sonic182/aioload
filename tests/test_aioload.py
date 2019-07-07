@@ -5,8 +5,7 @@ import asyncio
 import random
 from datetime import datetime
 from unittest.mock import MagicMock
-from aioload import request
-from aioload import start
+from aioload.runner import Runner
 from aioload import get_arguments
 
 
@@ -40,7 +39,7 @@ async def test_request(config):
     }
     body = 'somebody'
     json = {'foo': 'bar'}
-    res = await request(
+    res = await Runner.request(
         session, sem, logger, url, method, params, headers, body, json)
 
     assert res['code'] == 200
@@ -56,7 +55,7 @@ async def test_request_raise_exception(config):
     logger = MagicMock()
     url = 'http://someurl:8080'
     method = 'get'
-    res = await request(
+    res = await Runner.request(
         session, sem, logger, url, method)
 
     assert res['code'] == 'X'
@@ -78,8 +77,8 @@ async def mock_request(*args, **kwargs):
 @pytest.mark.asyncio
 async def test_start(config, mocker):
     """Test request function."""
-    mocker.patch('aioload.request', new=mock_request)
-    mocker.patch('aioload.render_plot')
+    mocker.patch('aioload.runner.Runner.request', new=mock_request)
+    mocker.patch('aioload.runner.render_plot')
     session = MagicMock()
     session.request.side_efect = Exception('some exception')
     logger = MagicMock()
@@ -87,7 +86,7 @@ async def test_start(config, mocker):
     args.concurrency = 1
     args.number_of_requests = 10
     args.plot = True
-    assert await start(logger, args) is None
+    assert await Runner(logger, args).start() is None
 
 
 @pytest.mark.asyncio

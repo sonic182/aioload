@@ -94,9 +94,12 @@ Contribute
 2. create a branch ``feature/your_feature``
 3. commit - push - pull request
 
+Dependencies are handled with pip-tools_
+
 thanks :)
 
 .. _this: ./sample/server.cr
+.. _pip-tools: https://github.com/jazzband/pip-tools
 .. |build status| image:: https://travis-ci.org/sonic182/aioload.svg?branch=master
    :target: https://travis-ci.org/sonic182/aioload
 .. |coverage status| image:: https://coveralls.io/repos/github/sonic182/aioload/badge.svg?branch=master

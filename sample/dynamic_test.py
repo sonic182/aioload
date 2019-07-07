@@ -6,9 +6,9 @@ from configparser import ConfigParser
 
 from aioload.utils import get_logger
 
-from aioload import start
-from aioload import request
+from aioload.runner import Runner
 from aioload import get_arguments
+
 
 PARAMS = [{
     'name': 'foo',
@@ -19,10 +19,12 @@ PARAMS = [{
 }]
 
 
-async def my_request(*args, **kwargs):
-    """Updates params in a random way."""
-    kwargs['params'].update(random.choice(PARAMS))
-    return await request(*args, **kwargs)
+class CustomRunner(Runner):
+
+    async def request(self, *args, **kwargs):
+        """Updates params in a random way."""
+        kwargs['params'].update(random.choice(PARAMS))
+        return await super(CustomRunner, self).request(*args, **kwargs)
 
 
 def main():
@@ -39,9 +41,8 @@ def main():
         'url': 'http://localhost:8000',
         'method': 'get',
         'params': dict(config['params']),
-        'target': my_request
     }
-    loop.run_until_complete(start(logger, args, **kwargs))
+    loop.run_until_complete(Runner(logger, args, **kwargs).start())
     logger.info('Exiting script...')
 
 

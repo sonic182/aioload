@@ -78,7 +78,9 @@ usage example
 
 .. figure:: ./charts.jpg
 
-You can override aioload runner methods, here_ is an example. Then you should run the defined script file eg: `python sample/dynamic_test.py conf.ini -v`
+
+You can override aioload runner methods, here_ is an example. Then you should execute the script you made, in this example: ``python sample/dynamic_test.py conf.ini -v``
+
 
 
 Note

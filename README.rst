@@ -80,6 +80,8 @@ usage example
 
 .. figure:: ./charts.jpg
 
+You can override aioload runner methods, here_ is an example. Then you should run the defined script file eg: `python sample/dynamic_test.py conf.ini -v`
+
 
 Note
 ====
@@ -99,6 +101,7 @@ Dependencies are handled with pip-tools_
 thanks :)
 
 .. _this: ./sample/server.cr
+.. _here: https://github.com/sonic182/aioload/blob/master/sample/dynamic_test.py
 .. _pip-tools: https://github.com/jazzband/pip-tools
 .. |build status| image:: https://travis-ci.org/sonic182/aioload.svg?branch=master
    :target: https://travis-ci.org/sonic182/aioload

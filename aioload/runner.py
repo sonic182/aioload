@@ -20,9 +20,9 @@ class Runner:
     async def request(cls, session, sem, logger, url, method, params=None,
                       headers=None, body=None, json=None):
         """Do request and return statics."""
-        req_data = cls.prepare_request(
-            url, method, params, headers, body, json)
         async with sem:
+            req_data = cls.prepare_request(
+                url, method, params, headers, body, json)
             logger.debug('doing request')
 
             before = datetime.now()

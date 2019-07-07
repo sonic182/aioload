@@ -10,8 +10,6 @@ Requirements
 ============
 
 -  python>=3.5.3
--  install requirements by installing package ``pip install -e .`` (-e
-   for editable installation) or installing requirements.txt
 
 Installation
 ============

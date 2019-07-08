@@ -17,6 +17,8 @@ Installation
 .. code:: bash
 
   pip install aioload
+  # optional, highly recommended
+  pip install uvloop
 
 Usage
 =====

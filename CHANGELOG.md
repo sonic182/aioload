@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.2] 2019-07-08
+### Changed
+- Construct list of request_data items before starting runner
+
+### Added
+- uvloop install, optional but recommended
+
 ## [0.2.1] 2019-07-07
 ### Fixed
 - Build request inside semaphore, for better results

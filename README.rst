@@ -6,6 +6,8 @@ AIOload
 Load test tool using aiohttp, cchardet and aiodns. for drawing charts we
 use matplotlib and pandas.
 
+Usage of uvloop is highly recommended, it gave me between 20% and 25% of increased speed.
+
 Requirements
 ============
 

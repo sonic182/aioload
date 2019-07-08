@@ -1,28 +1,28 @@
+"""Runner module."""
 import asyncio
-import aiohttp.client_exceptions
 import statistics
 from datetime import datetime
 from datetime import timedelta
 
 import aiohttp
+import aiohttp.client_exceptions
 import pandas as pd
 from aioload.plot import render_plot
 
 
 class Runner:
+    """Runner class."""
 
     def __init__(self, logger, args, **kwargs):
+        """Initialize runner."""
         self.logger = logger
         self.args = args
         self.kwargs = kwargs
 
     @classmethod
-    async def request(cls, session, sem, logger, url, method, params=None,
-                      headers=None, body=None, json=None):
+    async def request(cls, session, sem, logger, req_data):
         """Do request and return statics."""
         async with sem:
-            req_data = cls.prepare_request(
-                url, method, params, headers, body, json)
             logger.debug('doing request')
 
             before = datetime.now()
@@ -50,7 +50,8 @@ class Runner:
                 }
 
     @staticmethod
-    def prepare_request(url, method, params, headers, body, json):
+    def prepare_request(url, method, params=None, headers=None, body=None,
+                        json=None, **kwargs):
         """Prepare request."""
         req_data = {
             'url': url,
@@ -77,22 +78,31 @@ class Runner:
         kwargs = self.kwargs
 
         async with aiohttp.ClientSession(
-            connector=aiohttp.TCPConnector(limit=args.concurrency),
-            timeout=aiohttp.ClientTimeout(
-                sock_read=kwargs.pop('sock_read', 27),
-                sock_connect=kwargs.pop('sock_connect', 3)
-            )
+                connector=aiohttp.TCPConnector(limit=args.concurrency),
+                timeout=aiohttp.ClientTimeout(
+                    sock_read=kwargs.pop('sock_read', 27),
+                    sock_connect=kwargs.pop('sock_connect', 3)
+                )
         ) as session:
             target = kwargs.get('target', self.request)
             sem = asyncio.Semaphore(args.concurrency)
             # Send one request before test, for caching dns resolution
             # and keeping alive connection
-            await target(session, sem, logger, **kwargs)
+            req_data = self.prepare_request(**kwargs)
+            await target(session, sem, logger, req_data)
 
+            logger.info('preparing_requests')
+            requests_data = [
+                self.prepare_request(**kwargs)
+                for _ in range(args.number_of_requests)
+            ]
+            logger.info('prepared_requests')
+
+            logger.info('starting_requests')
             statics = await asyncio.gather(*[
-                target(session, sem, logger, **kwargs)
-                for _ in range(args.number_of_requests)]
-            )
+                target(session, sem, logger, req_data)
+                for req_data in requests_data
+            ])
 
             durations = []
             when = []

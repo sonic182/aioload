@@ -1,7 +1,8 @@
 
 
-from aiohttp import web
 import random
+from argparse import ArgumentParser
+from aiohttp import web
 
 
 STATUSES = [200, 202, 401, 500]
@@ -25,7 +26,10 @@ def get_app():
 def main():
     """Start sample app."""
     app = get_app()
-    web.run_app(app, port='8000')
+    parser = ArgumentParser()
+    parser.add_argument('--port', type=int, default=8000)
+    args = parser.parse_args()
+    web.run_app(app, port=args.port)
 
 
 if __name__ == '__main__':

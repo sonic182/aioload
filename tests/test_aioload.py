@@ -29,18 +29,8 @@ async def test_request(config):
     session.request.return_value.status = 200
     sem = asyncio.Semaphore()
     logger = MagicMock()
-    url = 'http://someurl:8080'
-    method = 'get'
-    params = {
-        'foo': 'bar'
-    }
-    headers = {
-        'accept-encoding': 'gzip,deflate'
-    }
-    body = 'somebody'
-    json = {'foo': 'bar'}
     res = await Runner.request(
-        session, sem, logger, url, method, params, headers, body, json)
+        session, sem, logger, {})
 
     assert res['code'] == 200
     assert isinstance(res['duration'], float)
@@ -53,10 +43,8 @@ async def test_request_raise_exception(config):
     session.request.side_efect = Exception('some exception')
     sem = AsyncMagicMock()
     logger = MagicMock()
-    url = 'http://someurl:8080'
-    method = 'get'
     res = await Runner.request(
-        session, sem, logger, url, method)
+        session, sem, logger, {})
 
     assert res['code'] == 'X'
     assert isinstance(res['duration'], float)
@@ -86,7 +74,11 @@ async def test_start(config, mocker):
     args.concurrency = 1
     args.number_of_requests = 10
     args.plot = True
-    assert await Runner(logger, args).start() is None
+    kwargs = {
+        'url': 'foo',
+        'method': 'get'
+    }
+    assert await Runner(logger, args, **kwargs).start() is None
 
 
 @pytest.mark.asyncio

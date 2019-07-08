@@ -7,6 +7,12 @@ from configparser import ConfigParser
 from aioload.utils import get_logger
 from aioload.runner import Runner
 
+try:
+    import uvloop
+    uvloop.install()
+except Exception:
+    pass
+
 
 def get_arguments():
     """Get arguments."""

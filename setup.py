@@ -18,7 +18,7 @@ setup(
     author_email='johanderson@mogollon.com.ve',
     url='https://github.com/sonic182/aioload',
     license='MIT',
-    packages=['aioload'],
+    packages=['aioload', 'aioload_utils'],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
@@ -47,12 +47,14 @@ setup(
     },
     extras_require={
         'test': [
+            'uvloop',
             'pytest',
             'pytest-mock',
             'pytest-cov',
             'pytest-asyncio',
             'coveralls',
             'pytest-flake8',
+            'pytest-aiohttp'
         ]
     }
 )

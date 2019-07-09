@@ -1,12 +1,20 @@
 """Test load_test.__init__.py file."""
 
-import pytest
 import asyncio
 import random
 from datetime import datetime
+from datetime import timedelta
+from argparse import Namespace
 from unittest.mock import MagicMock
+from configparser import ConfigParser
+
+import pandas as pd
+import pytest
+
 from aioload.runner import Runner
 from aioload import get_arguments
+from aioload.plot import render_plot
+from aioload_utils import get_logger
 
 
 class AsyncMagicMock(MagicMock):
@@ -22,7 +30,7 @@ class AsyncMagicMock(MagicMock):
 
 
 @pytest.mark.asyncio
-async def test_request(config):
+async def test_request():
     """Test request function."""
     session = MagicMock()
     session.request.return_value = AsyncMagicMock()
@@ -37,7 +45,7 @@ async def test_request(config):
 
 
 @pytest.mark.asyncio
-async def test_request_raise_exception(config):
+async def test_request_raise_exception():
     """Test request function."""
     session = MagicMock()
     session.request.side_efect = Exception('some exception')
@@ -63,7 +71,7 @@ async def mock_request(*args, **kwargs):
 
 
 @pytest.mark.asyncio
-async def test_start(config, mocker):
+async def test_start(mocker):
     """Test request function."""
     mocker.patch('aioload.runner.Runner.request', new=mock_request)
     mocker.patch('aioload.runner.render_plot')
@@ -82,7 +90,82 @@ async def test_start(config, mocker):
 
 
 @pytest.mark.asyncio
-async def test_get_argument(config, mocker):
+async def test_get_argument(mocker):
     """Test request function."""
     mocker.patch('argparse.ArgumentParser.parse_args')
     assert get_arguments()
+
+
+@pytest.mark.asyncio
+async def test_do_load_test_sample_server(app, aiohttp_server):
+    """Do load test to sample server."""
+    server = await aiohttp_server(app)
+    kwargs = {
+        'url': 'http://localhost:{}'.format(server.port),
+        'method': 'get',
+        'params': {'foo': 'bar'},
+        'headers': {'foo': 'bar'},
+        'json': {'foo': 'bar'},
+        'body': 'foo',
+    }
+    config = ConfigParser()
+    config.add_section('logging')
+    args = Namespace(
+        debug=False,
+        verbose=True,
+        number_of_requests=100,
+        plot=False,
+        concurrency=10
+    )
+    logger, _uuid = get_logger(args, config)
+    await Runner(logger, args, **kwargs).start()
+    await server.close()
+
+
+@pytest.mark.asyncio
+async def test_render_plot(mocker):
+    """Do load test to sample server."""
+    mocker.patch('aioload.plot.plt')
+    statics = [{
+        'code': 200
+    }, {
+        'code': 200
+    }]
+    durations = [30, 35]
+    when = [datetime.now() - timedelta(seconds=3), datetime.now()]
+    durations_serie = pd.Series(
+        durations,
+        index=when
+    )
+    render_plot(statics, durations_serie)
+
+
+def test_init(mocker):
+    """Test init."""
+    import aioload
+    mocker.patch.object(aioload, "main", return_value=42)
+    mocker.patch.object(aioload, "__name__", "__main__")
+    aioload.init()
+
+
+def test_uvloop_not_installed(mocker):
+    """Test uvloop not in module."""
+    uvloop = MagicMock()
+    uvloop.install = MagicMock(side_effect=ImportError())
+    mocker.patch('aioload.uvloop', new=uvloop)
+    import sys
+    sys.modules['uvloop'] = uvloop
+    if 'aioload' in sys.modules:
+        del sys.modules['aioload']
+    import aioload
+    assert aioload
+
+
+def test_main(mocker):
+    """Test uvloop not in module."""
+    mocker.patch('aioload.ConfigParser')
+    mocker.patch('aioload.get_arguments')
+    mocker.patch('aioload.asyncio.get_event_loop')
+    mocker.patch('aioload.get_logger', return_value=(MagicMock(), MagicMock()))
+    from aioload import main
+    main()

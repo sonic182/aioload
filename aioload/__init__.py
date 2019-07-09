@@ -4,13 +4,13 @@ import asyncio
 from argparse import ArgumentParser
 from configparser import ConfigParser
 
-from aioload.utils import get_logger
+from aioload_utils import get_logger
 from aioload.runner import Runner
 
 try:
     import uvloop
     uvloop.install()
-except Exception:
+except ImportError:
     pass
 
 
@@ -54,5 +54,10 @@ def main():
     logger.info('Exiting script...')
 
 
-if __name__ == '__main__':
-    main()
+def init():
+    """Init function."""
+    if __name__ == '__main__':
+        main()
+
+
+init()

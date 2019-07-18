@@ -1,5 +1,6 @@
 """Setup module."""
 
+import re
 from setuptools import setup
 
 
@@ -7,6 +8,11 @@ def read_file(filename):
     """Read file correctly."""
     with open(filename) as _file:
         return _file.read().strip()
+
+
+def requirements(filename):
+    """Parse requirements from file."""
+    return re.findall(r'([\w-]+[<=>]{1}=[\d.]+)', read_file(filename)) or []
 
 
 setup(
@@ -32,13 +38,7 @@ setup(
     keywords='testing loadtest load',
     setup_requires=['pytest-runner'],
     test_requires=['pytest'],
-    install_requires=[
-        'aiohttp',
-        'cchardet',
-        'aiodns',
-        'matplotlib',
-        'pandas'
-    ],
+    install_requires=requirements('requirements.txt'),
     # other arguments here...
     entry_points={
         'console_scripts': [
@@ -46,15 +46,6 @@ setup(
         ]
     },
     extras_require={
-        'test': [
-            'uvloop',
-            'pytest',
-            'pytest-mock',
-            'pytest-cov',
-            'pytest-asyncio',
-            'coveralls',
-            'pytest-flake8',
-            'pytest-aiohttp'
-        ]
+        'test': requirements('test-requirements.txt')
     }
 )

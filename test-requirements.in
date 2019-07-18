@@ -1,5 +1,8 @@
+uvloop
 pytest
+pytest-mock
 pytest-cov
 pytest-asyncio
 coveralls
 pytest-flake8
+pytest-aiohttp

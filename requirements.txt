@@ -15,7 +15,7 @@ cycler==0.10.0            # via matplotlib
 idna-ssl==1.1.0           # via aiohttp
 idna==2.8                 # via idna-ssl, yarl
 kiwisolver==1.1.0         # via matplotlib
-matplotlib==3.1.1
+matplotlib==3.0.3
 multidict==4.5.2          # via aiohttp, yarl
 numpy==1.16.4             # via matplotlib, pandas
 pandas==0.25.0

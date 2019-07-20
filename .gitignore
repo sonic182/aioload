@@ -22,3 +22,5 @@ logs/*.log*
 pip-wheel-metadata/
 pyproject.toml
 poetry.lock
+*.c
+*.so

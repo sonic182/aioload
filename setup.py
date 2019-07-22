@@ -15,6 +15,16 @@ def requirements(filename):
     return re.findall(r'([\w-]+[<=>]{1}=[\d.]+)', read_file(filename)) or []
 
 
+def override(requirements, overrides):
+    """Override requirements.txt"""
+    def override_it(item):
+        for key in overrides:
+            if key in item:
+                return overrides[key]
+        return item
+    return list(map(override_it, requirements))
+
+
 setup(
     name='aioload',
     version=read_file('VERSION'),
@@ -38,9 +48,9 @@ setup(
     keywords='testing loadtest load',
     setup_requires=['pytest-runner'],
     test_requires=['pytest'],
-    install_requires=requirements('requirements.txt') + [
-        'matplotlib<=3.1.1',  # alowing matplotlib for python 3.5
-    ],
+    install_requires=override(requirements('requirements.txt'), {
+        'matplotlib': 'matplotlib<=3.1.1'
+    }),
     # other arguments here...
     entry_points={
         'console_scripts': [

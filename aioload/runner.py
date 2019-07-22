@@ -4,6 +4,7 @@ import statistics
 from datetime import datetime
 from datetime import timedelta
 
+from yarl import URL
 import aiohttp
 import aiohttp.client_exceptions
 import pandas as pd
@@ -54,7 +55,7 @@ class Runner:
                         json=None, **kwargs):
         """Prepare request."""
         req_data = {
-            'url': url,
+            'url': URL(url),
             'method': method
         }
 

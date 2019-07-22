@@ -38,7 +38,9 @@ setup(
     keywords='testing loadtest load',
     setup_requires=['pytest-runner'],
     test_requires=['pytest'],
-    install_requires=requirements('requirements.txt'),
+    install_requires=requirements('requirements.txt') + [
+        'matplotlib<=3.1.1',  # alowing matplotlib for python 3.5
+    ],
     # other arguments here...
     entry_points={
         'console_scripts': [

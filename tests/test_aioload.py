@@ -166,6 +166,7 @@ def test_main(mocker):
     mocker.patch('aioload.ConfigParser')
     mocker.patch('aioload.get_arguments')
     mocker.patch('aioload.asyncio.get_event_loop')
+    mocker.patch('aioload.Runner')
     mocker.patch('aioload.get_logger', return_value=(MagicMock(), MagicMock()))
     from aioload import main
     main()

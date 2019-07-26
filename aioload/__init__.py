@@ -50,7 +50,8 @@ def main():
         'sock_read': config['http'].getint('sock_read', 30),
         'sock_connect': config['http'].getint('sock_connect', 3),
     }
-    loop.run_until_complete(Runner(logger, args, **kwargs).start())
+    runner = Runner(logger, args, **kwargs)
+    loop.run_until_complete(runner.start())
     logger.info('Exiting script...')
 
 

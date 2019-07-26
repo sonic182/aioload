@@ -20,6 +20,13 @@ class Runner:
         self.args = args
         self.kwargs = kwargs
 
+        logger.info('preparing_requests')
+        self.requests_data = [
+            self.prepare_request(**kwargs)
+            for _ in range(args.number_of_requests)
+        ]
+        logger.info('prepared_requests')
+
     @classmethod
     async def request(cls, session, sem, logger, req_data):
         """Do request and return statics."""
@@ -58,6 +65,8 @@ class Runner:
             'url': URL(url),
             'method': method
         }
+        # make cache
+        req_data['url'].host
 
         if params:
             req_data['params'] = dict(params)
@@ -92,17 +101,10 @@ class Runner:
             req_data = self.prepare_request(**kwargs)
             await target(session, sem, logger, req_data)
 
-            logger.info('preparing_requests')
-            requests_data = [
-                self.prepare_request(**kwargs)
-                for _ in range(args.number_of_requests)
-            ]
-            logger.info('prepared_requests')
-
             logger.info('starting_requests')
             statics = await asyncio.gather(*[
                 target(session, sem, logger, req_data)
-                for req_data in requests_data
+                for req_data in self.requests_data
             ])
 
             durations = []

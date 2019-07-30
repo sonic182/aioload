@@ -11,12 +11,11 @@ attrs==19.1.0             # via aiohttp, pytest
 certifi==2019.6.16        # via requests
 chardet==3.0.4            # via aiohttp, requests
 coverage==4.5.3           # via coveralls, pytest-cov
-coveralls==1.8.1
+coveralls==1.8.2
 docopt==0.6.2             # via coveralls
 entrypoints==0.3          # via flake8
 flake8==3.7.8             # via pytest-flake8
-idna-ssl==1.1.0           # via aiohttp
-idna==2.8                 # via idna-ssl, requests, yarl
+idna==2.8                 # via requests, yarl
 importlib-metadata==0.18  # via pluggy, pytest
 mccabe==0.6.1             # via flake8
 more-itertools==7.1.0     # via pytest
@@ -35,7 +34,6 @@ pytest-mock==1.10.4
 pytest==5.0.1
 requests==2.22.0          # via coveralls
 six==1.12.0               # via packaging
-typing-extensions==3.7.4  # via aiohttp
 urllib3==1.25.3           # via requests
 uvloop==0.12.2
 wcwidth==0.1.7            # via pytest

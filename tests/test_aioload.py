@@ -112,9 +112,10 @@ async def test_do_load_test_sample_server(app, aiohttp_server):
     server = await aiohttp_server(app)
     kwargs = {
         'url': 'http://localhost:{}'.format(server.port),
-        'method': 'get',
+        'method': 'post',
         'params': {'foo': 'bar'},
         'headers': {'foo': 'bar'},
+        'json': {'foo': 'bar'},
         'body': 'foo',
     }
     config = ConfigParser()

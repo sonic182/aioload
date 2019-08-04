@@ -3,7 +3,7 @@
 AIOload
 =======
 
-Load test tool using aiosonic http client. for drawing charts we
+Load test tool using aiosonic_ http client. for drawing charts we
 use matplotlib and pandas.
 
 Usage of uvloop is highly recommended, it gave me between 20% and 25% of increased speed.
@@ -105,6 +105,7 @@ Dependencies are handled with pip-tools_
 thanks :)
 
 .. _this: ./sample/server.cr
+.. _aiosonic: https://github.com/sonic182/aiosonic
 .. _here: https://github.com/sonic182/aioload/blob/master/sample/dynamic_test.py
 .. _pip-tools: https://github.com/jazzband/pip-tools
 .. |build status| image:: https://travis-ci.org/sonic182/aioload.svg?branch=master

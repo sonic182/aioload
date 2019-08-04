@@ -11,7 +11,7 @@ Usage of uvloop is highly recommended, it gave me between 20% and 25% of increas
 Requirements
 ============
 
--  python>=3.5.3
+-  python>=3.6
 
 Installation
 ============

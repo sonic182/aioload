@@ -3,7 +3,7 @@
 AIOload
 =======
 
-Load test tool using aiohttp, cchardet and aiodns. for drawing charts we
+Load test tool using aiosonic http client. for drawing charts we
 use matplotlib and pandas.
 
 Usage of uvloop is highly recommended, it gave me between 20% and 25% of increased speed.
@@ -90,7 +90,7 @@ You can override aioload runner methods, here_ is an example. Then you should ex
 Note
 ====
 
-Python has limits, if your applications is crazy fast like this_ crystal server, the test will be limited by aiohttp's client speed.
+Python has limits, if your applications is crazy fast like this_ crystal server, the test will be limited by aiosonic's client speed.
 
 
 Contribute

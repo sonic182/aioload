@@ -1,5 +1,3 @@
-aiohttp
-cchardet
-aiodns
 matplotlib
 pandas
+aiosonic

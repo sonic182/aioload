@@ -30,15 +30,25 @@ class AsyncMagicMock(MagicMock):
 
 
 @pytest.mark.asyncio
-async def test_request():
+async def test_request(mocker):
     """Test request function."""
-    session = MagicMock()
-    session.request.return_value = AsyncMagicMock()
-    session.request.return_value.status = 200
+    response = MagicMock()
+    response.status_code = 200
+
+    async def return_resp(*args, **kwargs):
+        return response
+    resp = mocker.patch(
+        'aioload.runner.aiosonic.request', return_value=return_resp())
+    mocker.patch('aioload.runner.Runner.prepare_request')
+    resp.status_code = 200
     sem = asyncio.Semaphore()
     logger = MagicMock()
-    res = await Runner.request(
-        session, sem, logger, {})
+    args = MagicMock()
+    args.number_of_requests = 1
+    args.concurrency = 1
+    runner = Runner(MagicMock(), args)
+    res = await runner.request(
+        sem, logger, {})
 
     assert res['code'] == 200
     assert isinstance(res['duration'], float)
@@ -105,7 +115,6 @@ async def test_do_load_test_sample_server(app, aiohttp_server):
         'method': 'get',
         'params': {'foo': 'bar'},
         'headers': {'foo': 'bar'},
-        'json': {'foo': 'bar'},
         'body': 'foo',
     }
     config = ConfigParser()

@@ -4,7 +4,7 @@
 #
 #    pip-compile requirements.in
 #
-aiosonic==0.0.3
+aiosonic==0.0.4
 cycler==0.10.0            # via matplotlib
 kiwisolver==1.1.0         # via matplotlib
 matplotlib==3.1.1

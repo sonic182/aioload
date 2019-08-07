@@ -6,7 +6,7 @@ AIOload
 Load test tool using aiosonic_ http client. for drawing charts we
 use matplotlib and pandas.
 
-Usage of uvloop is highly recommended, it gave me between 20% and 25% of increased speed.
+Usage of uvloop is highly recommended.
 
 Requirements
 ============

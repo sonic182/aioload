@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [0.3.0] 2019-08-07
+### Changed
+- Http client to [aiosonic](https://github.com/sonic182/aiosonic)
+- Compatibility now from Python>=3.6 (3.5 deprecated)
+
 ## [0.2.4] 2019-07-23
 ### Added
 - Precalculate URL param
@@ -35,7 +40,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Load test script
 - Charts with pandas and matplotlib
 
-[Unreleased]: https://github.com/sonic182/aioload/compare/0.2.4..HEAD
+[Unreleased]: https://github.com/sonic182/aioload/compare/0.3.0..HEAD
+[0.3.0]: https://github.com/sonic182/aioload/compare/0.3.0..0.2.4
 [0.2.4]: https://github.com/sonic182/aioload/compare/0.2.4..0.2.3
 [0.2.3]: https://github.com/sonic182/aioload/compare/0.2.3..0.2.2
 [0.2.2]: https://github.com/sonic182/aioload/compare/0.2.2..0.2.1

@@ -3,7 +3,7 @@
 AIOload
 =======
 
-Load test tool using aiosonic_ http client. for drawing charts we
+Load test tool using aiosonic_ http client. For drawing charts we
 use matplotlib and pandas.
 
 Usage of uvloop is highly recommended.

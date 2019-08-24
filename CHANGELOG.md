@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.1] 2019-08-24
+### Changed
+- Upaded dependencies
+
+### Fixed
+- Timeouts usage http client aiosonic
 
 ## [0.3.0] 2019-08-07
 ### Changed
@@ -40,11 +46,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Load test script
 - Charts with pandas and matplotlib
 
-[Unreleased]: https://github.com/sonic182/aioload/compare/0.3.0..HEAD
-[0.3.0]: https://github.com/sonic182/aioload/compare/0.3.0..0.2.4
-[0.2.4]: https://github.com/sonic182/aioload/compare/0.2.4..0.2.3
-[0.2.3]: https://github.com/sonic182/aioload/compare/0.2.3..0.2.2
-[0.2.2]: https://github.com/sonic182/aioload/compare/0.2.2..0.2.1
-[0.2.1]: https://github.com/sonic182/aioload/compare/0.2.1..0.2.0
-[0.2.0]: https://github.com/sonic182/aioload/compare/0.2.0..0.1.0
-[0.1.0]: https://github.com/sonic182/aioload/compare/0.1.0..c35fb0435f96f0ab6e4ff3d35a14c4a0f62dc577
+[Unreleased]: https://github.com/sonic182/aioload/compare/0.3.1..HEAD
+[0.3.1]: https://github.com/sonic182/aioload/compare/0.3.0..0.3.1
+[0.3.0]: https://github.com/sonic182/aioload/compare/0.2.4..0.3.0
+[0.2.4]: https://github.com/sonic182/aioload/compare/0.2.3..0.2.4
+[0.2.3]: https://github.com/sonic182/aioload/compare/0.2.2..0.2.3
+[0.2.2]: https://github.com/sonic182/aioload/compare/0.2.1..0.2.2
+[0.2.1]: https://github.com/sonic182/aioload/compare/0.2.0..0.2.1
+[0.2.0]: https://github.com/sonic182/aioload/compare/0.1.0..0.2.0
+[0.1.0]: https://github.com/sonic182/aioload/compare/c35fb0435f96f0ab6e4ff3d35a14c4a0f62dc577..0.1.0

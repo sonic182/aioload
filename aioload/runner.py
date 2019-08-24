@@ -7,6 +7,7 @@ from datetime import timedelta
 import pandas as pd
 from aioload.plot import render_plot
 import aiosonic
+from aiosonic.timeout import Timeouts
 from aiosonic.connectors import TCPConnector
 
 
@@ -61,7 +62,11 @@ class Runner:
         """Prepare request."""
         req_data = {
             'url': url,
-            'method': method
+            'method': method,
+            'timeouts': Timeouts(
+                sock_read=kwargs.get('sock_read', 30),
+                sock_connect=kwargs.get('sock_connect', 30),
+            )
         }
 
         if params:

@@ -4,16 +4,17 @@
 #
 #    pip-compile requirements.in
 #
-aiosonic==0.2.1
+aiosonic==0.4.0
+chardet==3.0.4            # via aiosonic
 cycler==0.10.0            # via matplotlib
 kiwisolver==1.1.0         # via matplotlib
 matplotlib==3.1.1
 numpy==1.17.0             # via matplotlib, pandas
-pandas==0.25.0
+pandas==0.25.1
 pyparsing==2.4.2          # via matplotlib
 python-dateutil==2.8.0    # via matplotlib, pandas
 pytz==2019.2              # via pandas
 six==1.12.0               # via cycler, python-dateutil
 
 # The following packages are considered to be unsafe in a requirements file:
-# setuptools==41.0.1        # via kiwisolver
+# setuptools==41.2.0        # via kiwisolver

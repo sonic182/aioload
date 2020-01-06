@@ -10,7 +10,7 @@ attrs==19.3.0             # via aiohttp, pytest
 certifi==2019.9.11        # via requests
 chardet==3.0.4            # via aiohttp, requests
 coverage==4.5.4           # via coveralls, pytest-cov
-coveralls==1.9.2
+coveralls==1.10.0
 docopt==0.6.2             # via coveralls
 entrypoints==0.3          # via flake8
 flake8==3.7.9             # via pytest-flake8

@@ -3,6 +3,8 @@
 AIOload
 =======
 
+https://blog.mogollon.com.ve/2020/01/10/load-testing-with-python/
+
 Load test tool using aiosonic_ http client. For drawing charts we
 use matplotlib and pandas.
 

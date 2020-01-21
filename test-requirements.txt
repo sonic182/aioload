@@ -36,6 +36,7 @@ requests==2.22.0          # via coveralls
 six==1.14.0               # via packaging
 typing-extensions==3.7.4.1  # via aiohttp
 urllib3==1.25.8           # via requests
+uvloop==0.14.0
 wcwidth==0.1.8            # via pytest
 yarl==1.4.2               # via aiohttp
 zipp==2.0.0               # via importlib-metadata

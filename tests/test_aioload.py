@@ -162,13 +162,17 @@ def test_uvloop_not_installed(mocker):
     """Test uvloop not in module."""
     uvloop = MagicMock()
     uvloop.install = MagicMock(side_effect=ImportError())
-    mocker.patch('aioload.uvloop', new=uvloop)
-    import sys
-    sys.modules['uvloop'] = uvloop
-    if 'aioload' in sys.modules:
-        del sys.modules['aioload']
-    import aioload
-    assert aioload
+    try:
+        mocker.patch('aioload.uvloop', new=uvloop)
+        import sys
+        sys.modules['uvloop'] = uvloop
+        if 'aioload' in sys.modules:
+            del sys.modules['aioload']
+        import aioload
+        assert aioload
+    except AttributeError:
+        # not uvloop for windows
+        pass
 
 
 def test_main(mocker):

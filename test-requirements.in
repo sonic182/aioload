@@ -1,3 +1,4 @@
+uvloop
 pytest
 pytest-mock
 pytest-cov

@@ -22,7 +22,7 @@ Installation
 .. code:: bash
 
   pip install aioload
-  # optional, highly recommended
+  # optional, highly recommended, doesn't work on Windows
   pip install uvloop
 
 Usage

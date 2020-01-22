@@ -1,4 +1,5 @@
-|build status| |coverage status| |pypi package|
+|Azure Build Status| |build status| |coverage status| |pypi package|
+
 
 AIOload
 =======
@@ -116,3 +117,5 @@ thanks :)
    :target: https://coveralls.io/github/sonic182/aioload?branch=master
 .. |pypi package| image:: https://badge.fury.io/py/aioload.svg
     :target: https://badge.fury.io/py/aioload
+.. |Azure Build Status| image:: https://dev.azure.com/johander-182/aioload/_apis/build/status/sonic182.aioload?branchName=master
+   :target: https://dev.azure.com/johander-182/aioload/_build/latest?definitionId=3&branchName=master

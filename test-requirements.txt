@@ -14,11 +14,9 @@ coveralls==1.10.0
 docopt==0.6.2             # via coveralls
 entrypoints==0.3          # via flake8
 flake8==3.7.9             # via pytest-flake8
-idna-ssl==1.1.0           # via aiohttp
-idna==2.8                 # via idna-ssl, requests, yarl
-importlib-metadata==1.4.0  # via pluggy, pytest
+idna==2.8                 # via requests, yarl
 mccabe==0.6.1             # via flake8
-more-itertools==8.1.0     # via pytest, zipp
+more-itertools==8.1.0     # via pytest
 multidict==4.7.4          # via aiohttp, yarl
 packaging==20.0           # via pytest
 pluggy==0.13.1            # via pytest
@@ -31,12 +29,10 @@ pytest-asyncio==0.10.0
 pytest-cov==2.8.1
 pytest-flake8==1.0.4
 pytest-mock==2.0.0
-pytest==5.3.4
+pytest==5.3.5
 requests==2.22.0          # via coveralls
 six==1.14.0               # via packaging
-typing-extensions==3.7.4.1  # via aiohttp
 urllib3==1.25.8           # via requests
 uvloop==0.14.0
 wcwidth==0.1.8            # via pytest
 yarl==1.4.2               # via aiohttp
-zipp==2.0.0               # via importlib-metadata

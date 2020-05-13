@@ -7,32 +7,31 @@
 aiohttp==3.6.2            # via pytest-aiohttp
 async-timeout==3.0.1      # via aiohttp
 attrs==19.3.0             # via aiohttp, pytest
-certifi==2019.11.28       # via requests
+certifi==2020.4.5.1       # via requests
 chardet==3.0.4            # via aiohttp, requests
-coverage==5.0.3           # via coveralls, pytest-cov
-coveralls==1.11.0
+coverage==5.1             # via coveralls, pytest-cov
+coveralls==2.0.0          # via -r test-requirements.in
 docopt==0.6.2             # via coveralls
-entrypoints==0.3          # via flake8
-flake8==3.7.9             # via pytest-flake8
-idna==2.8                 # via requests, yarl
+flake8==3.8.1             # via pytest-flake8
+idna==2.9                 # via requests, yarl
 mccabe==0.6.1             # via flake8
-more-itertools==8.1.0     # via pytest
-multidict==4.7.4          # via aiohttp, yarl
-packaging==20.0           # via pytest
+more-itertools==8.2.0     # via pytest
+multidict==4.7.5          # via aiohttp, yarl
+packaging==20.3           # via pytest
 pluggy==0.13.1            # via pytest
 py==1.8.1                 # via pytest
-pycodestyle==2.5.0        # via flake8
-pyflakes==2.1.1           # via flake8
-pyparsing==2.4.6          # via packaging
-pytest-aiohttp==0.3.0
-pytest-asyncio==0.10.0
-pytest-cov==2.8.1
-pytest-flake8==1.0.4
-pytest-mock==2.0.0
-pytest==5.3.5
-requests==2.22.0          # via coveralls
+pycodestyle==2.6.0        # via flake8
+pyflakes==2.2.0           # via flake8
+pyparsing==2.4.7          # via packaging
+pytest-aiohttp==0.3.0     # via -r test-requirements.in
+pytest-asyncio==0.12.0    # via -r test-requirements.in
+pytest-cov==2.8.1         # via -r test-requirements.in
+pytest-flake8==1.0.6      # via -r test-requirements.in
+pytest-mock==3.1.0        # via -r test-requirements.in
+pytest==5.4.2             # via -r test-requirements.in, pytest-aiohttp, pytest-asyncio, pytest-cov, pytest-flake8, pytest-mock
+requests==2.23.0          # via coveralls
 six==1.14.0               # via packaging
-urllib3==1.25.8           # via requests
-uvloop==0.14.0
-wcwidth==0.1.8            # via pytest
+urllib3==1.25.9           # via requests
+uvloop==0.14.0            # via -r test-requirements.in
+wcwidth==0.1.9            # via pytest
 yarl==1.4.2               # via aiohttp

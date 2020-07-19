@@ -11,9 +11,10 @@ h2==3.1.1                 # via aiosonic
 hpack==3.0.0              # via aiosonic, h2
 hyperframe==5.2.0         # via aiosonic, h2
 kiwisolver==1.2.0         # via matplotlib
-matplotlib==3.2.1         # via -r requirements.in
+matplotlib==3.3.0         # via -r requirements.in
 numpy==1.18.4             # via matplotlib, pandas
 pandas==1.0.5             # via -r requirements.in
+pillow==7.2.0             # via matplotlib
 pyparsing==2.4.7          # via matplotlib
 python-dateutil==2.8.1    # via matplotlib, pandas
 pytz==2020.1              # via pandas

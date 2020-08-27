@@ -27,7 +27,7 @@ pytest-aiohttp==0.3.0     # via -r test-requirements.in
 pytest-asyncio==0.14.0    # via -r test-requirements.in
 pytest-cov==2.10.0        # via -r test-requirements.in
 pytest-flake8==1.0.6      # via -r test-requirements.in
-pytest-mock==3.2.0        # via -r test-requirements.in
+pytest-mock==3.3.1        # via -r test-requirements.in
 pytest==5.4.3             # via -r test-requirements.in, pytest-aiohttp, pytest-asyncio, pytest-cov, pytest-flake8, pytest-mock
 requests==2.23.0          # via coveralls
 six==1.14.0               # via packaging

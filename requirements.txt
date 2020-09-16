@@ -5,13 +5,14 @@
 #    pip-compile
 #
 aiosonic==0.5.3           # via -r requirements.in
+certifi==2020.6.20        # via matplotlib
 chardet==3.0.4            # via aiosonic
 cycler==0.10.0            # via matplotlib
 h2==3.1.1                 # via aiosonic
 hpack==3.0.0              # via aiosonic, h2
 hyperframe==5.2.0         # via aiosonic, h2
 kiwisolver==1.2.0         # via matplotlib
-matplotlib==3.3.0         # via -r requirements.in
+matplotlib==3.3.2         # via -r requirements.in
 numpy==1.18.4             # via matplotlib, pandas
 pandas==1.0.5             # via -r requirements.in
 pillow==7.2.0             # via matplotlib

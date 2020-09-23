@@ -4,10 +4,10 @@
 #
 #    pip-compile
 #
-aiosonic==0.5.3           # via -r requirements.in
+aiosonic==0.7.0           # via -r requirements.in
 chardet==3.0.4            # via aiosonic
 cycler==0.10.0            # via matplotlib
-h2==3.1.1                 # via aiosonic
+h2==3.2.0                 # via aiosonic
 hpack==3.0.0              # via aiosonic, h2
 hyperframe==5.2.0         # via aiosonic, h2
 kiwisolver==1.2.0         # via matplotlib

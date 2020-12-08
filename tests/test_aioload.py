@@ -38,14 +38,14 @@ async def test_request(mocker):
     async def return_resp(*args, **kwargs):
         return response
     resp = mocker.patch(
-        'aioload.runner.aiosonic.request', return_value=return_resp())
+        'aioload.runner.aiosonic.HTTPClient.request',
+        return_value=return_resp())
     mocker.patch('aioload.runner.Runner.prepare_request')
     resp.status_code = 200
     sem = asyncio.Semaphore()
     logger = MagicMock()
-    args = MagicMock()
-    args.number_of_requests = 1
-    args.concurrency = 1
+    args = MagicMock(
+        number_of_requests=1, concurrency=1, insecure=False)
     runner = Runner(MagicMock(), args)
     res = await runner.request(
         sem, logger, {})
@@ -125,7 +125,8 @@ async def test_do_load_test_sample_server(app, aiohttp_server):
         verbose=True,
         number_of_requests=100,
         plot=False,
-        concurrency=10
+        concurrency=10,
+        insecure=False
     )
     logger, _uuid = get_logger(args, config)
     await Runner(logger, args, **kwargs).start()

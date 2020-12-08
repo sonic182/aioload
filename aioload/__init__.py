@@ -30,6 +30,8 @@ def get_arguments():
                         'default: 10')
     parser.add_argument('--plot', action='store_true',
                         help="draw charts if present")
+    parser.add_argument('-k', '--insecure', action='store_true',
+                        help='skip ssl certificates validation')
     return parser.parse_args()
 
 

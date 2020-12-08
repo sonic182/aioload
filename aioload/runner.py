@@ -19,7 +19,10 @@ class Runner:
         self.logger = logger
         self.args = args
         self.kwargs = kwargs
-        self.connector = TCPConnector(pool_size=args.concurrency)
+        self.client = aiosonic.HTTPClient(
+            connector=TCPConnector(pool_size=args.concurrency),
+            verify_ssl=not args.insecure
+        )
 
         logger.info('preparing_requests')
         self.requests_data = [
@@ -36,8 +39,7 @@ class Runner:
             before = datetime.now()
             try:
                 # req_data options
-                resp = await aiosonic.request(
-                    **req_data, connector=self.connector)
+                resp = await self.client.request(**req_data)
                 after = datetime.now()
                 res = {
                     'code': resp.status_code,

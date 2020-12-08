@@ -13,7 +13,7 @@ def render_plot(statics, durations_serie):
 
     # mean duration chart
     durations_serie.resample('1s').mean().plot(
-        title='median duration per 1s')
+        title='median duration per 1s (ms)')
 
     # req per second chart
     plt.figure()

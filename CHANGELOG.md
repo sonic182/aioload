@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.4.0] 2020-11-22
+## [0.4.0] 2020-12-08
 ### Updated
 - aiosonic dependency to 0.8.1 for bug fixing see [aiosonic Changelog](https://github.com/sonic182/aiosonic/blob/master/CHANGELOG.md#081-2020-12-08)
 - updated dependencies in general

@@ -4,37 +4,83 @@
 #
 #    pip-compile test-requirements.in
 #
-aiohttp==3.7.3            # via pytest-aiohttp
-async-timeout==3.0.1      # via aiohttp
-attrs==20.3.0             # via aiohttp, pytest
-certifi==2020.11.8        # via requests
-chardet==3.0.4            # via aiohttp, requests
-coverage==5.3             # via coveralls, pytest-cov
+aiohttp==3.7.3
+    # via pytest-aiohttp
+async-timeout==3.0.1
+    # via aiohttp
+attrs==20.3.0
+    # via
+    #   aiohttp
+    #   pytest
+certifi==2020.11.8
+    # via requests
+chardet==3.0.4
+    # via
+    #   aiohttp
+    #   requests
+coverage==5.3
+    # via
+    #   coveralls
+    #   pytest-cov
 coveralls==2.2.0
-docopt==0.6.2             # via coveralls
-flake8==3.8.4             # via pytest-flake8
-idna==2.10                # via requests, yarl
-importlib-metadata==2.0.0  # via flake8, pluggy, pytest
-iniconfig==1.1.1          # via pytest
-mccabe==0.6.1             # via flake8
-multidict==5.0.2          # via aiohttp, yarl
-packaging==20.4           # via pytest
-pluggy==0.13.1            # via pytest
-py==1.9.0                 # via pytest
-pycodestyle==2.6.0        # via flake8
-pyflakes==2.2.0           # via flake8
-pyparsing==2.4.7          # via packaging
+    # via -r test-requirements.in
+docopt==0.6.2
+    # via coveralls
+flake8==3.8.4
+    # via pytest-flake8
+idna==2.10
+    # via
+    #   requests
+    #   yarl
+iniconfig==1.1.1
+    # via pytest
+mccabe==0.6.1
+    # via flake8
+multidict==5.0.2
+    # via
+    #   aiohttp
+    #   yarl
+packaging==20.4
+    # via pytest
+pluggy==0.13.1
+    # via pytest
+py==1.9.0
+    # via pytest
+pycodestyle==2.6.0
+    # via flake8
+pyflakes==2.2.0
+    # via flake8
+pyparsing==2.4.7
+    # via packaging
 pytest-aiohttp==0.3.0
+    # via -r test-requirements.in
 pytest-asyncio==0.14.0
+    # via -r test-requirements.in
 pytest-cov==2.10.1
+    # via -r test-requirements.in
 pytest-flake8==1.0.6
+    # via -r test-requirements.in
 pytest-mock==3.3.1
-pytest==6.1.2
-requests==2.25.0          # via coveralls
-six==1.15.0               # via packaging
-toml==0.10.2              # via pytest
-typing-extensions==3.7.4.3  # via aiohttp, yarl
-urllib3==1.26.2           # via requests
+    # via -r test-requirements.in
+pytest==6.2.2
+    # via
+    #   -r test-requirements.in
+    #   pytest-aiohttp
+    #   pytest-asyncio
+    #   pytest-cov
+    #   pytest-flake8
+    #   pytest-mock
+requests==2.25.0
+    # via coveralls
+six==1.15.0
+    # via packaging
+toml==0.10.2
+    # via pytest
+typing-extensions==3.7.4.3
+    # via aiohttp
+urllib3==1.26.2
+    # via requests
 uvloop==0.14.0
-yarl==1.6.3               # via aiohttp
-zipp==3.4.0               # via importlib-metadata
+    # via -r test-requirements.in
+yarl==1.6.3
+    # via aiohttp
